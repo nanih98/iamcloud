@@ -1,0 +1,56 @@
+version: '3.5'
+services:
+  influxdb:
+   image: influxdb:latest
+   restart: always
+   container_name: influxdb
+   ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+   env_file:
+    - 'env.influxdb'
+   volumes:
+    # Data persistency
+    # sudo mkdir -p /srv/docker/influxdb/data
+    - /srv/docker/influxdb/data:/var/lib/influxdb
+   networks:
+    - monitoring
+
+  telegraf:
+   image: telegraf:latest
+   restart: always
+   container_name: telegraf
+   hostname: monitor-main
+   links:
+    - influxdb
+   volumes:
+    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+   networks:
+    - monitoring    
+
+  grafana:
+   image: grafana/grafana:latest
+   restart: always
+   container_name: grafana
+   ports:
+    - "443:3000"
+   env_file:
+    - 'env.grafana'
+   links:
+    - influxdb
+   volumes:
+    # Data persistency
+    # sudo mkdir -p /srv/docker/grafana/data; chown 472:472 /srv/docker/grafana/data
+    - /srv/docker/grafana/data:/var/lib/grafana
+    - /srv/docker/grafana/grafana:/usr/share/grafana
+   networks:
+    - monitoring      
+
+#Creamos la red 'monitoreo' para los containers de monitoreo
+networks:
+ monitoring:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.5.0.0/16
