@@ -1,0 +1,45 @@
+#Master
+host master
+hostname 10.138.0.20
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+#Worker1
+host worker1
+hostname 10.138.0.21
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+#Worker2
+host worker2
+hostname 10.138.0.22
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+#glusterfs3
+host nfs
+hostname 10.150.0.49
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+
+#Glusterfs1
+host glusterfs1
+hostname 10.150.0.47
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+
+#Glusterfs2
+host glusterfs2
+hostname 10.150.0.48
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
+
+
+
+#Monitor
+host monitor
+hostname 10.132.0.2
+user anonymous
+IdentityFile /home/anonymous/.ssh/id_rsa
