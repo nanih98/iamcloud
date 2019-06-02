@@ -1,0 +1,11 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: gluster-heketi-external
+provisioner: kubernetes.io/glusterfs
+parameters:
+  resturl: "http://(private-ipOfHeketi-node):8080"  #put the ip of glusterfs1/heketi-cli
+  restuser: "admin"
+  secretName: "heketi-secret"  #the username and the admin must be the same as we create in secret-heketi.yaml and the heketi.json
+  secretNamespace: "default"
+  volumetype: "replicate:3"  #if you only have 2 nodes change the number
