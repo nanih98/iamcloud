@@ -1,0 +1,24 @@
+[Unit]
+Description=Heketi Server
+Requires=network-online.target
+After=network-online.target
+ 
+[Service]
+Type=simple
+User=heketi
+Group=heketi
+PermissionsStartOnly=true
+PIDFile=/run/heketi/heketi.pid
+Restart=on-failure
+RestartSec=10
+WorkingDirectory=/var/lib/heketi
+RuntimeDirectory=heketi
+RuntimeDirectoryMode=0755
+ExecStartPre=[ -f "/run/heketi/heketi.pid" ] && /bin/rm -f /run/heketi/heketi.pid
+ExecStart=/usr/local/bin/heketi --config=/etc/heketi/heketi.json
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=5
+ 
+[Install]
+WantedBy=multi-user.target
