@@ -7,4 +7,5 @@ IAMCLOUD is a project developed by Daniel Cascales. It is an infrastructure buil
 
 # Files
 
-In the next few days I will upload the official documentation of the project and documenting well all the files to be used. More info: https://wordpress-iamcloud.ddns.net
+The official document of the project: https://github.com/nanih98/iamcloud/blob/master/IAMCLOUD_Daniel_Cascales.pdf 
+All the project configuration files are in this repository.
