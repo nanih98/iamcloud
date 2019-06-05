@@ -3,7 +3,9 @@
   
 IAMCLOUD is a project developed by Daniel Cascales. It is an infrastructure built on Google Cloud Platform. The most relevant technologies are: -Kubernetes -Glusterfs -Docker -Jenkins -Gitlab -Pormetheus -Grafana -Heketi
 
+# Soon
 
+Integration of Jenkins + Gitlab with GKE kubernetes cluster. Pipeline CI / CD
 
 # Files
 
