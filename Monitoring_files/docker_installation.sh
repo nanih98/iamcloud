@@ -1,6 +1,6 @@
 #! /bin/bash
 #Preinstallation, docker and kubernetes services installation for centos instance.
-sudo yum -y update && yum -y update && yum -y install make gcc kernel-devela kernel-header net-tools vim
+sudo yum -y update && yum -y update && yum -y install make gcc kernel-devel kernel-headers net-tools vim
 #Disable selinux 
 sudosetenforce 0
 sudo sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
