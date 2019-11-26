@@ -17,4 +17,4 @@ All the project configuration files are in this repository.
 All files in the repository can be used by anyone. The .pdf document is forbidden to be copied and copyrights are maintained.
 
 Copyright IAMCLOUD.
-If you are interested in reproducing any text, please contact: a16dancasrom@iam.cat
+If you are interested in reproducing any text, please contact: **devopstech253@gmail.com**
